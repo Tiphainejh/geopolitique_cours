@@ -15,47 +15,17 @@ cours_list = [
         'url': '/cours/seance2'
     },
     {
-        'titre': 'Définitions des Relations Internationales',
-        'description': 'Concepts clés et approches théoriques des relations internationales.',
-        'url': '/cours/definitions-ri'
+        'titre': 'Les conflits dans le monde contemporain',
+        'description': 'Transformations des conflits, typologie des guerres, nouvelles échelles, crise de l\'État, émergence de nouveaux acteurs.',
+        'url': '/cours/seance3'
     },
     {
-        'titre': 'Économie du XXe siècle',
-        'description': 'Évolution économique mondiale et transformations du système économique international.',
-        'url': '/cours/economie-20e'
+        'titre': 'Quelles frontières pour l\'Europe ?',
+        'description': 'Limites géographiques de l\'Europe, construction européenne, élargissements successifs, instruments IPA et PEV, défis contemporains.',
+        'url': '/cours/seance4'
     },
-    {
-        'titre': 'Diplomatie culturelle',
-        'description': 'Soft power et influence culturelle dans les relations internationales.',
-        'url': '/cours/diplomatie-culturelle'
-    },
-    {
-        'titre': 'Migrations internationales',
-        'description': 'Flux migratoires, enjeux démographiques et géopolitiques des migrations.',
-        'url': '/cours/migrations'
-    },
-    {
-        'titre': 'Afrique et colonisation',
-        'description': 'Histoire coloniale, décolonisation et enjeux contemporains du continent africain.',
-        'url': '/cours/afrique-colonisation'
-    },
-    {
-        'titre': 'L\'ONU et l\'intégration régionale',
-        'description': 'Organisations internationales, système onusien et processus d\'intégration régionale.',
-        'url': '/cours/onu-integration'
-    },
-    {
-        'titre': 'Organisations internationales',
-        'description': 'Acteurs multilatéraux et leur rôle dans la gouvernance mondiale.',
-        'url': '/cours/organisations-internationales'
-    },
-    {
-        'titre': 'Qu\'est-ce que l\'Europe ?',
-        'description': 'Construction européenne, identité européenne et défis de l\'intégration.',
-        'url': '/cours/quest-ce-que-europe'
-    }
+    # ... autres cours
 ]
-
 @app.route('/')
 def index():
     return render_template('index.html', cours=cours_list)
@@ -67,6 +37,8 @@ def cours_seance1():
 @app.route('/cours/seance2')
 def cours_seance2():
     return render_template('cours_seance2.html')
-
+@app.route('/cours/seance4')
+def cours_seance4():
+    return render_template('cours_seance4.html')
 if __name__ == '__main__':
     app.run(debug=True)
