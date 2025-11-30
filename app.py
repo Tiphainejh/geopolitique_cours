@@ -32,12 +32,12 @@ cours_list = [
     {
         'titre': 'L\'Inde : géographie, démographie et puissance émergente',
         'description': 'Analyse complète de l\'Inde : territoire immense, diversité exceptionnelle, économie en croissance et positionnement géopolitique stratégique.',
-        'url': '/cours/inde'
+        'url': '/cours/seance6'
     },
     {
-        'titre': 'Séance 7 (à venir)',
-        'description': 'Contenu à définir prochainement.',
-        'url': '#'
+        'titre': 'L\'Amérique latine : influences américaine et européenne',
+        'description': 'Histoire complète de l\'influence nord-américaine (1776-présent) et européenne (1980-présent) sur l\'Amérique latine : expansionnisme, néolibéralisme, Mercosur, néopopulisme et géopolitique contemporaine.',
+        'url': '/cours/seance7'
     },
     {
         'titre': 'Séance 8 (à venir)',
@@ -70,9 +70,9 @@ def cours_seance4():
 def cours_seance5():
     return render_template('cours_seance5.html')
 
-@app.route('/cours/inde')
+@app.route('/cours/seance6')
 def cours_inde():
-    return render_template('cours_inde.html')
+    return render_template('cours_seance6.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
