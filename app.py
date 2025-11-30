@@ -24,8 +24,28 @@ cours_list = [
         'description': 'Limites géographiques de l\'Europe, construction européenne, élargissements successifs, instruments IPA et PEV, défis contemporains.',
         'url': '/cours/seance4'
     },
-    # ... autres cours
+    {
+        'titre': 'Les aires culturelles aujourd\'hui',
+        'description': 'Étude critique des aires culturelles : origines académiques, théorie du choc des civilisations, globalisation et pertinence contemporaine.',
+        'url': '/cours/seance5'
+    },
+    {
+        'titre': 'L\'Inde : géographie, démographie et puissance émergente',
+        'description': 'Analyse complète de l\'Inde : territoire immense, diversité exceptionnelle, économie en croissance et positionnement géopolitique stratégique.',
+        'url': '/cours/inde'
+    },
+    {
+        'titre': 'Séance 7 (à venir)',
+        'description': 'Contenu à définir prochainement.',
+        'url': '#'
+    },
+    {
+        'titre': 'Séance 8 (à venir)',
+        'description': 'Contenu à définir prochainement.',
+        'url': '#'
+    },
 ]
+
 @app.route('/')
 def index():
     return render_template('index.html', cours=cours_list)
@@ -37,8 +57,22 @@ def cours_seance1():
 @app.route('/cours/seance2')
 def cours_seance2():
     return render_template('cours_seance2.html')
+
+@app.route('/cours/seance3')
+def cours_seance3():
+    return render_template('cours_seance3.html')
+
 @app.route('/cours/seance4')
 def cours_seance4():
     return render_template('cours_seance4.html')
+
+@app.route('/cours/seance5')
+def cours_seance5():
+    return render_template('cours_seance5.html')
+
+@app.route('/cours/inde')
+def cours_inde():
+    return render_template('cours_inde.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
