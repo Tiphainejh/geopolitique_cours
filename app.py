@@ -71,15 +71,15 @@ def cours_seance5():
     return render_template('cours_seance5.html')
 
 @app.route('/cours/seance6')
-def cours_inde():
+def cours_seance6():
     return render_template('cours_seance6.html')
 
 @app.route('/cours/seance7')
-def cours_inde():
+def cours_seance7():
     return render_template('cours_seance7.html')
 
 @app.route('/cours/seance8')
-def cours_inde():
+def cours_seance8():
     return render_template('cours_seance8.html')
 if __name__ == '__main__':
     app.run(debug=True)
