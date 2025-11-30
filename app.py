@@ -42,7 +42,7 @@ cours_list = [
     {
         'titre': 'Séance 8 (à venir)',
         'description': 'Contenu à définir prochainement.',
-        'url': '#'
+        'url': '/cours/seance8'
     },
 ]
 
@@ -74,5 +74,12 @@ def cours_seance5():
 def cours_inde():
     return render_template('cours_seance6.html')
 
+@app.route('/cours/seance7')
+def cours_inde():
+    return render_template('cours_seance7.html')
+
+@app.route('/cours/seance8')
+def cours_inde():
+    return render_template('cours_seance8.html')
 if __name__ == '__main__':
     app.run(debug=True)
