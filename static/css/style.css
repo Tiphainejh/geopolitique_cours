@@ -1041,7 +1041,6 @@ header h1 a:hover {
 
 /* Sommaire sticky (fixe en scrollant) */
 .table-of-contents {
-    position: sticky;
     top: 100px; /* ajuste selon la hauteur de ton header */
     max-height: calc(100vh - 120px);
     overflow-y: auto;
