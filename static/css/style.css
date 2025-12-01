@@ -1033,3 +1033,226 @@ header h1 a:hover {
 .nav-link:nth-child(4) { animation-delay: 0.4s; }
 .nav-link:nth-child(5) { animation-delay: 0.5s; }
 .nav-link:nth-child(6) { animation-delay: 0.6s; }
+
+
+/* =================================================================
+   OPTIMISATIONS POUR COURS LONG - UNE SEULE PAGE
+   ================================================================= */
+
+/* Sommaire sticky (fixe en scrollant) */
+.table-of-contents {
+    position: sticky;
+    top: 100px; /* ajuste selon la hauteur de ton header */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    z-index: 100;
+}
+
+/* Scroll smooth pour toute la page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Bouton retour en haut */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+/* Barre de progression de lecture */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #f5576c 100%);
+    z-index: 1001;
+    transition: width 0.1s ease;
+}
+
+/* Sections numérotées automatiquement */
+.cours-content {
+    counter-reset: section;
+}
+
+.cours-content section > h2::before {
+    counter-increment: section;
+    content: counter(section) ". ";
+    color: #f5576c;
+}
+
+.cours-content section {
+    counter-reset: subsection;
+}
+
+.cours-content section > h3::before {
+    counter-increment: subsection;
+    content: counter(section) "." counter(subsection) " ";
+    color: #fa709a;
+}
+
+/* Layout 2 colonnes pour sommaire + contenu (optionnel) */
+.cours-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.cours-layout .table-of-contents {
+    grid-column: 1;
+}
+
+.cours-layout .cours-main-content {
+    grid-column: 2;
+}
+
+/* Indicateur visuel de section active dans le sommaire */
+.table-of-contents a.active {
+    background: rgba(102, 126, 234, 0.2);
+    padding: 0.3rem 0.8rem;
+    margin-left: -0.8rem;
+    border-radius: 5px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+/* Amélioration scrollbar du sommaire */
+.table-of-contents::-webkit-scrollbar {
+    width: 6px;
+}
+
+.table-of-contents::-webkit-scrollbar-track {
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+}
+
+.table-of-contents::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+/* Sections séparées visuellement */
+.cours-content > section {
+    border-bottom: 2px dashed rgba(102, 126, 234, 0.2);
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+}
+
+.cours-content > section:last-child {
+    border-bottom: none;
+}
+
+/* Mini-TOC au début de chaque grande section (optionnel) */
+.section-mini-toc {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #667eea;
+}
+
+.section-mini-toc h4 {
+    color: #667eea;
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+}
+
+.section-mini-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.section-mini-toc li {
+    margin: 0.5rem 0;
+}
+
+.section-mini-toc a {
+    color: #764ba2;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.section-mini-toc a:hover {
+    color: #f5576c;
+    padding-left: 5px;
+}
+
+/* Responsive pour cours long */
+@media (max-width: 1024px) {
+    .cours-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-of-contents {
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation d'entrée progressive pour grandes sections */
+.cours-content > section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSection 0.6s ease forwards;
+}
+
+.cours-content > section:nth-child(1) { animation-delay: 0.1s; }
+.cours-content > section:nth-child(2) { animation-delay: 0.2s; }
+.cours-content > section:nth-child(3) { animation-delay: 0.3s; }
+.cours-content > section:nth-child(4) { animation-delay: 0.4s; }
+.cours-content > section:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInSection {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Highlight au survol des sections dans le sommaire */
+.table-of-contents a:hover::before {
+    content: '→ ';
+    color: #f5576c;
+}

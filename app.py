@@ -40,8 +40,8 @@ cours_list = [
         'url': '/cours/seance7'
     },
     {
-        'titre': 'Séance 8 (à venir)',
-        'description': 'Contenu à définir prochainement.',
+        'titre': 'Le Moyen-Orient : Géopolitique et Conflits',
+        'description': 'Analyse approfondie des dynamiques géopolitiques du Moyen-Orient, incluant les conflits historiques et contemporains, les enjeux énergétiques, et les influences internationales dans la région.',
         'url': '/cours/seance8'
     },
 ]
